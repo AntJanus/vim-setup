@@ -3,6 +3,8 @@ filetype off
 let g:colors_name = "tomorrow-night-bright"
 set guifont=Menlo:12
 
+" let g:colors_name = "twilight"
+
 " powerline
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
@@ -87,8 +89,11 @@ nmap gy :bnext<CR>
 nmap gt :bprevious<cr>
 nmap gd :bdelete<cr>
 nmap <leader>bl :ls<CR>
+
+" Airline stuff
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#estensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts=1
 
 nnoremap <leader>a :Ack
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -96,7 +101,6 @@ nnoremap <leader>f :NERDTreeFind<CR>
 
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.md set spell
 autocmd BufRead,BufNewFile *.module set filetype=php
 autocmd BufRead,BufNewFile *.install set filetype=php
 autocmd BufRead,BufNewFile *.test set filetype=php
@@ -126,6 +130,11 @@ set nobackup
 nnoremap ; :
 
 nnoremap <leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
+
+"Ctrl P
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+
 " let Vundle manage Vundle
  " required!
  Bundle 'gmarik/vundle'
@@ -135,21 +144,22 @@ nnoremap <leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
  " original repos on github
  Bundle 'tpope/vim-fugitive'
  Bundle 'Lokaltog/vim-easymotion'
- Bundle 'rstacruz/sparkup', {'rtp': 'vim'}
- Bundle 'tpope/vim-rails.git'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim'}
+" Bundle 'tpope/vim-rails.git'
  Bundle 'ack.vim'
  Bundle 'plasticboy/vim-markdown'
  Bundle 'groenewege/vim-less'
  Bundle 'editorconfig-vim'
  Bundle 'bling/vim-airline'
  Bundle 'airblade/vim-gitgutter'
+ " Bundle 'kien/ctrlp.vim'
  " vim-scripts repos
- Bundle 'L9'
- Bundle 'FuzzyFinder'
+ " Bundle 'L9'
+ " Bundle 'FuzzyFinder'
  Bundle 'NERDTree'
  Bundle 'NERDCommenter'
  " non github repos
- " Bundle 'git://git.wincent.com/command-t.git'
+ Bundle 'git://git.wincent.com/command-t.git'
  " ...
 
  filetype plugin indent on     " required!
