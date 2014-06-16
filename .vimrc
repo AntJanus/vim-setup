@@ -1,8 +1,9 @@
 filetype off
 
-let g:colors_name = "tomorrow-night-bright"
+"let g:colors_name = "tomorrow-night-bright"
 set guifont=Menlo:12
-
+let g:colors_name = "obsidian"
+set background=dark
 " let g:colors_name = "twilight"
 
 " powerline
@@ -61,7 +62,6 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
-
 set wrap
 set formatoptions=qrn1
 set linebreak
@@ -95,12 +95,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#estensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts=1
 
-nnoremap <leader>a :Ack
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.txt set filetype=markdown
 autocmd BufRead,BufNewFile *.module set filetype=php
 autocmd BufRead,BufNewFile *.install set filetype=php
 autocmd BufRead,BufNewFile *.test set filetype=php
@@ -112,6 +112,7 @@ autocmd BufRead,BufNewFile *.js set ft=javascript syntax=javascript
 autocmd BufRead,BufNewFile *.json set ft=json syntax=javascript
 autocmd BufRead,BufNewFile *.twig set ft=htmldjango
 autocmd BufRead,BufNewFile *.rabl set ft=ruby
+autocmd BufRead,BufNewFile *.jade set ft=jade
 
 " Whitespace fixes
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -131,6 +132,12 @@ nnoremap ; :
 
 nnoremap <leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
+" Tabularize
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
+
 "Ctrl P
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'
@@ -146,7 +153,7 @@ nnoremap <leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
  Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim'}
 " Bundle 'tpope/vim-rails.git'
- Bundle 'ack.vim'
+" Bundle 'ack.vim'
  Bundle 'plasticboy/vim-markdown'
  Bundle 'groenewege/vim-less'
  Bundle 'editorconfig-vim'
@@ -156,8 +163,11 @@ nnoremap <leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
  " vim-scripts repos
  " Bundle 'L9'
  " Bundle 'FuzzyFinder'
- Bundle 'NERDTree'
- Bundle 'NERDCommenter'
+ Bundle 'scrooloose/NERDTree'
+ Bundle 'scrooloose/NERDCommenter'
+ Bundle 'scrooloose/syntastic'
+ Bundle 'digitaltoad/vim-jade'
+ Bundle 'Tabular'
  " non github repos
  Bundle 'git://git.wincent.com/command-t.git'
  " ...
