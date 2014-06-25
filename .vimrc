@@ -1,4 +1,40 @@
+set nocompatible
 filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle
+ " required!
+ Plugin 'gmarik/Vundle.vim'
+
+ " My Plugins here:
+ "
+ " original repos on github
+ Plugin 'tpope/vim-fugitive'
+ Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim'}
+" Plugin 'tpope/vim-rails.git'
+" Plugin 'ack.vim'
+ Plugin 'plasticboy/vim-markdown'
+ Plugin 'groenewege/vim-less'
+ Plugin 'editorconfig-vim'
+ Plugin 'bling/vim-airline'
+ Plugin 'airblade/vim-gitgutter'
+ " Plugin 'kien/ctrlp.vim'
+ " vim-scripts repos
+ " Plugin 'L9'
+ " Plugin 'FuzzyFinder'
+ Plugin 'scrooloose/NERDTree'
+ Plugin 'scrooloose/NERDCommenter'
+ Plugin 'scrooloose/syntastic'
+ Plugin 'digitaltoad/vim-jade'
+ Plugin 'Tabular'
+ " Plugin 'Neocomplete'
+ " non github repos
+ Plugin 'git://git.wincent.com/command-t.git'
+ " ...
+call vundle#end()            " required
+filetype plugin indent on     " required!
 
 "let g:colors_name = "tomorrow-night-bright"
 set guifont=Menlo:12
@@ -19,11 +55,8 @@ imap ^[OA <ESC>ki
 imap ^[OB <ESC>ji
 imap ^[OC <ESC>li
 imap ^[OD <ESC>hi
-set nocompatible               " be iMproved
 vnoremap <C-c> "*y
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
 
 " custom sign column color
 " hi SignColumn guibg=#020202 ctermbg=233
@@ -122,6 +155,13 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Vimcourage
+" function! Vimcourage()
+"     silent execute "!echo Good job"
+" endfunction
+
+" autocmd BufWritePost * call Vimcourage()
+
 set undolevels=20
 set title
 
@@ -138,47 +178,9 @@ vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:\zs<CR>
 vmap <leader>a: :Tabularize /:\zs<CR>
 
+" Paste mode
+set pastetoggle=<F6>
+
 "Ctrl P
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'
-
-" let Vundle manage Vundle
- " required!
- Bundle 'gmarik/vundle'
-
- " My Bundles here:
- "
- " original repos on github
- Bundle 'tpope/vim-fugitive'
- Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim'}
-" Bundle 'tpope/vim-rails.git'
-" Bundle 'ack.vim'
- Bundle 'plasticboy/vim-markdown'
- Bundle 'groenewege/vim-less'
- Bundle 'editorconfig-vim'
- Bundle 'bling/vim-airline'
- Bundle 'airblade/vim-gitgutter'
- " Bundle 'kien/ctrlp.vim'
- " vim-scripts repos
- " Bundle 'L9'
- " Bundle 'FuzzyFinder'
- Bundle 'scrooloose/NERDTree'
- Bundle 'scrooloose/NERDCommenter'
- Bundle 'scrooloose/syntastic'
- Bundle 'digitaltoad/vim-jade'
- Bundle 'Tabular'
- " non github repos
- Bundle 'git://git.wincent.com/command-t.git'
- " ...
-
- filetype plugin indent on     " required!
- "
- " Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
